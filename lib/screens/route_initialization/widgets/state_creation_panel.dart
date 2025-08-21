@@ -1,0 +1,54 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:routes_mobile/domain/blocs/route_initialization/route_initialization_bloc.dart';
+import 'package:routes_mobile/screens/route_initialization/widgets/creation_input.dart';
+import 'package:routes_mobile/screens/route_initialization/widgets/creation_panel.dart';
+class StateCreationPanel extends StatelessWidget {
+  final double inputWidth;
+  const StateCreationPanel({
+    required this.inputWidth,
+    super.key
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    final blocState = BlocProvider.of<RouteInitializationBloc>(context).state as OnStateCreation;
+    return CreationPanel(
+      child: Column(
+        children: [
+          Text(
+            'Ingresa un nuevo Estado',
+            style: Theme.of(context).textTheme.titleMedium,
+          ),
+          const SizedBox(
+            height: 20
+          ),
+          CreationInput(
+            hintText: 'Nombre',
+            controller: blocState.name,
+            width: inputWidth
+          ),
+          const SizedBox(
+            height: 10
+          ),
+          MaterialButton(
+            onPressed: (){
+              BlocProvider.of<RouteInitializationBloc>(context).add(EndStateCreation());
+            },
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(15)
+            ),
+            color: Theme.of(context).primaryColor,
+            minWidth: inputWidth,
+            child: const Text(
+              'Crear',
+              style: TextStyle(
+                color: Colors.white
+              ),
+            ),
+          )
+        ]
+      )
+    );
+  }
+}
