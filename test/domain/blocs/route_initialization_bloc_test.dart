@@ -136,7 +136,7 @@ void main(){
           ));
         when(statesServices.getStatesByCountryId(any))
           .thenAnswer((_) async => initStates);
-          return routesBloc;
+        return routesBloc;
       },
       act: (bloc) => bloc.add(Init()),
       expect: () => [

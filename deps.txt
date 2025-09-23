@@ -1,0 +1,148 @@
+Dart SDK 3.5.4
+Flutter SDK 3.24.5
+routes_mobile 1.0.0+1
+
+dependencies:
+- bloc 9.0.0 [meta]
+- cupertino_icons 1.0.8
+- dio 5.8.0+1 [async collection http_parser meta path dio_web_adapter]
+- flutter 0.0.0 [characters collection material_color_utilities meta vector_math sky_engine]
+- flutter_bloc 9.1.1 [bloc flutter provider]
+- geocoding 4.0.0 [flutter geocoding_platform_interface geocoding_android geocoding_ios]
+- geolocator 14.0.2 [flutter geolocator_platform_interface geolocator_android geolocator_apple geolocator_web geolocator_windows geolocator_linux]
+- get_it 8.0.3 [async collection meta]
+- google_fonts 6.2.1 [flutter http path_provider crypto]
+- google_maps_flutter 2.10.1 [flutter google_maps_flutter_android google_maps_flutter_ios google_maps_flutter_platform_interface google_maps_flutter_web]
+
+dev dependencies:
+- bloc_test 10.0.0 [bloc diff_match_patch meta mocktail test]
+- build_runner 2.4.13 [analyzer args async build build_config build_daemon build_resolvers build_runner_core code_builder collection crypto dart_style frontend_server_client glob graphs http_multi_server io js logging meta mime package_config path pool pub_semver pubspec_parse shelf shelf_web_socket stack_trace stream_transform timing watcher web_socket_channel yaml]
+- flutter_lints 4.0.0 [lints]
+- flutter_test 0.0.0 [flutter test_api matcher path fake_async clock stack_trace vector_math leak_tracker_flutter_testing async boolean_selector characters collection leak_tracker leak_tracker_testing material_color_utilities meta source_span stream_channel string_scanner term_glyph vm_service]
+- mockito 5.4.4 [analyzer build code_builder collection dart_style matcher meta path source_gen test_api]
+
+dependency overrides:
+- geolocator_android 4.6.2 [flutter geolocator_platform_interface meta uuid]
+
+transitive dependencies:
+- _fe_analyzer_shared 72.0.0 [meta]
+- _macros 0.3.2
+- analyzer 6.7.0 [_fe_analyzer_shared collection convert crypto glob macros meta package_config path pub_semver source_span watcher yaml]
+- args 2.7.0
+- async 2.11.0 [collection meta]
+- boolean_selector 2.1.1 [source_span string_scanner]
+- build 2.4.1 [analyzer async convert crypto glob logging meta package_config path]
+- build_config 1.1.1 [checked_yaml json_annotation path pubspec_parse yaml]
+- build_daemon 4.0.2 [built_collection built_value crypto http_multi_server logging path pool shelf shelf_web_socket stream_transform watcher web_socket_channel]
+- build_resolvers 2.4.2 [analyzer async build collection convert crypto graphs logging package_config path pool pub_semver stream_transform yaml]
+- build_runner_core 7.3.2 [async build build_config build_resolvers collection convert crypto glob graphs json_annotation logging meta package_config path pool timing watcher yaml]
+- built_collection 5.1.1
+- built_value 8.11.0 [built_collection collection fixnum meta]
+- characters 1.3.0
+- checked_yaml 2.0.3 [json_annotation source_span yaml]
+- cli_config 0.2.0 [args yaml]
+- clock 1.1.1
+- code_builder 4.10.1 [built_collection built_value collection matcher meta]
+- collection 1.18.0
+- convert 3.1.2 [typed_data]
+- coverage 1.15.0 [args cli_config glob logging meta package_config path source_maps stack_trace vm_service yaml]
+- crypto 3.0.6 [typed_data]
+- csslib 1.0.2 [source_span]
+- dart_style 2.3.7 [analyzer args collection package_config path pub_semver source_span]
+- dbus 0.7.11 [args ffi meta xml]
+- diff_match_patch 0.4.1
+- dio_web_adapter 2.1.1 [dio http_parser meta web]
+- fake_async 1.3.1 [clock collection]
+- ffi 2.1.3
+- file 7.0.1 [meta path]
+- fixnum 1.1.1
+- flutter_plugin_android_lifecycle 2.0.26 [flutter]
+- flutter_web_plugins 0.0.0 [flutter characters collection material_color_utilities meta vector_math]
+- frontend_server_client 4.0.0 [async path]
+- geoclue 0.1.1 [dbus meta]
+- geocoding_android 4.0.1 [flutter geocoding_platform_interface]
+- geocoding_ios 3.1.0 [flutter geocoding_platform_interface]
+- geocoding_platform_interface 3.2.0 [flutter meta plugin_platform_interface]
+- geolocator_apple 2.3.13 [flutter geolocator_platform_interface]
+- geolocator_linux 0.2.3 [dbus flutter geoclue geolocator_platform_interface gsettings package_info_plus]
+- geolocator_platform_interface 4.2.6 [flutter plugin_platform_interface vector_math meta]
+- geolocator_web 4.1.3 [flutter flutter_web_plugins geolocator_platform_interface web]
+- geolocator_windows 0.2.5 [flutter geolocator_platform_interface]
+- glob 2.1.3 [async collection file path string_scanner]
+- google_maps 8.1.1 [meta web]
+- google_maps_flutter_android 2.14.13 [flutter flutter_plugin_android_lifecycle google_maps_flutter_platform_interface stream_transform]
+- google_maps_flutter_ios 2.15.2 [flutter google_maps_flutter_platform_interface stream_transform]
+- google_maps_flutter_platform_interface 2.11.1 [collection flutter plugin_platform_interface stream_transform]
+- google_maps_flutter_web 0.5.12 [collection flutter flutter_web_plugins google_maps google_maps_flutter_platform_interface sanitize_html stream_transform web]
+- graphs 2.3.2 [collection]
+- gsettings 0.2.8 [dbus xdg_directories]
+- html 0.15.6 [csslib source_span]
+- http 1.4.0 [async http_parser meta web]
+- http_multi_server 3.2.2 [async]
+- http_parser 4.0.2 [collection source_span string_scanner typed_data]
+- io 1.0.5 [meta path string_scanner]
+- js 0.7.1
+- json_annotation 4.9.0 [meta]
+- leak_tracker 10.0.5 [clock collection meta path vm_service]
+- leak_tracker_flutter_testing 3.0.5 [flutter leak_tracker leak_tracker_testing matcher meta]
+- leak_tracker_testing 3.0.1 [leak_tracker matcher meta]
+- lints 4.0.0
+- logging 1.3.0
+- macros 0.1.2-main.4 [_macros]
+- matcher 0.12.16+1 [async meta stack_trace term_glyph test_api]
+- material_color_utilities 0.11.1 [collection]
+- meta 1.15.0
+- mime 2.0.0
+- mocktail 1.0.4 [collection matcher test_api]
+- nested 1.0.0 [flutter]
+- node_preamble 2.0.2
+- package_config 2.2.0 [path]
+- package_info_plus 8.3.0 [ffi flutter flutter_web_plugins http meta path package_info_plus_platform_interface web win32 clock]
+- package_info_plus_platform_interface 3.2.0 [flutter meta plugin_platform_interface]
+- path 1.9.0
+- path_provider 2.1.5 [flutter path_provider_android path_provider_foundation path_provider_linux path_provider_platform_interface path_provider_windows]
+- path_provider_android 2.2.15 [flutter path_provider_platform_interface]
+- path_provider_foundation 2.4.1 [flutter path_provider_platform_interface]
+- path_provider_linux 2.2.1 [ffi flutter path path_provider_platform_interface xdg_directories]
+- path_provider_platform_interface 2.1.2 [flutter platform plugin_platform_interface]
+- path_provider_windows 2.3.0 [ffi flutter path path_provider_platform_interface]
+- petitparser 6.0.2 [meta]
+- platform 3.1.6
+- plugin_platform_interface 2.1.8 [meta]
+- pool 1.5.1 [async stack_trace]
+- provider 6.1.5 [collection flutter nested]
+- pub_semver 2.2.0 [collection]
+- pubspec_parse 1.4.0 [checked_yaml collection json_annotation pub_semver yaml]
+- sanitize_html 2.1.0 [html meta]
+- shelf 1.4.1 [async collection http_parser path stack_trace stream_channel]
+- shelf_packages_handler 3.0.2 [path shelf shelf_static]
+- shelf_static 1.1.3 [convert http_parser mime path shelf]
+- shelf_web_socket 2.0.1 [shelf stream_channel web_socket_channel]
+- sky_engine 0.0.99
+- source_gen 1.5.0 [analyzer async build dart_style glob path source_span yaml]
+- source_map_stack_trace 2.1.2 [path source_maps stack_trace]
+- source_maps 0.10.13 [source_span]
+- source_span 1.10.0 [collection path term_glyph]
+- sprintf 7.0.0
+- stack_trace 1.11.1 [path]
+- stream_channel 2.1.2 [async]
+- stream_transform 2.1.1
+- string_scanner 1.2.0 [source_span]
+- term_glyph 1.2.1
+- test 1.25.7 [analyzer async boolean_selector collection coverage http_multi_server io js matcher node_preamble package_config path pool shelf shelf_packages_handler shelf_static shelf_web_socket source_span stack_trace stream_channel test_api test_core typed_data web_socket_channel webkit_inspection_protocol yaml]
+- test_api 0.7.2 [async boolean_selector collection meta source_span stack_trace stream_channel string_scanner term_glyph]
+- test_core 0.6.4 [analyzer args async boolean_selector collection coverage frontend_server_client glob io meta package_config path pool source_map_stack_trace source_maps source_span stack_trace stream_channel test_api vm_service yaml]
+- timing 1.0.2 [json_annotation]
+- typed_data 1.4.0 [collection]
+- uuid 4.5.1 [crypto sprintf meta fixnum]
+- vector_math 2.1.4
+- vm_service 14.2.5
+- watcher 1.1.2 [async path]
+- web 1.1.1
+- web_socket 1.0.1 [web]
+- web_socket_channel 3.0.3 [async crypto stream_channel web web_socket]
+- webkit_inspection_protocol 1.2.1 [logging]
+- win32 5.10.1 [ffi]
+- xdg_directories 1.1.0 [meta path]
+- xml 6.5.0 [collection meta petitparser]
+- yaml 3.1.3 [collection source_span string_scanner]

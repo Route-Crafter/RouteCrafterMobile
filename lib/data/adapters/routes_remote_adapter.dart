@@ -1,4 +1,5 @@
 import 'package:routes_mobile/domain/entities/routes/transport_route.dart';
+import 'package:routes_mobile/domain/entities/routes/way_point.dart';
 import 'package:routes_mobile/domain/exceptions.dart';
 
 abstract class RoutesRemoteAdapter {
@@ -44,9 +45,17 @@ class RoutesRemoteAdapterImpl implements RoutesRemoteAdapter{
         uuid: jsonData['id'],
         name: jsonData['name'],
         description: jsonData['description'],
-        executions: []
+        executions: [],
+        coords: ( ( jsonData['coords'] ?? [] ) as List ).map(
+          (c) => WayPoint(
+            lat: c['lat'],
+            lon: c['lon'],
+            speed: 0
+          )
+        ).toList()
       );
-    } on Object {
+    } on Object catch(exception, stackTrace){
+      print(stackTrace);
       throw const GeneralException(meessage: 'Ha ocurrido un error con el formato de los datos.');
     }
   }

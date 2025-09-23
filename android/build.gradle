@@ -1,7 +1,43 @@
+def localProperties = new Properties()
+def localPropertiesFile = rootProject.file("local.properties")
+if (localPropertiesFile.exists()) {
+    localPropertiesFile.withReader("UTF-8") { reader ->
+        localProperties.load(reader)
+    }
+}
+
+
+subprojects {
+    project.configurations.all {
+        resolutionStrategy.eachDependency { details ->
+            if (details.requested.group == 'com.baseflow' && details.requested.name == 'geolocator_android') {
+                details.useVersion "4.4.1"
+            }
+        }
+    }
+}
+
+ext {
+    compileSdkVersion = 35
+    targetSdkVersion = 35
+    minSdkVersion = 21
+    kotlin_version = '1.9.22'
+    flutterRoot = localProperties.getProperty('flutter.sdk')
+    flutter = {
+        compileSdkVersion = 35
+        minSdkVersion = 21
+    }
+}
+
 allprojects {
     repositories {
         google()
         mavenCentral()
+    }
+    configurations.all {
+        resolutionStrategy {
+            force 'com.baseflow:geolocator_android:4.4.1'
+        }
     }
 }
 

@@ -19,7 +19,11 @@ final class UpdateMapPosition extends RoutesEvent {
 
 final class SelectRoute extends RoutesEvent {
   final TransportRoute? route;
-  SelectRoute(this.route);
+  final Color mainColor;
+  SelectRoute(
+    this.route,
+    this.mainColor
+  );
 }
 
 final class SelectRouteExecution extends RoutesEvent {

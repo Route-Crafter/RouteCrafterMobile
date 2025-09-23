@@ -9,7 +9,6 @@ import 'package:routes_mobile/domain/entities/places/place_info.dart';
 import 'package:routes_mobile/domain/entities/places/zone.dart';
 import 'package:routes_mobile/domain/entities/routes/route_execution.dart';
 import 'package:routes_mobile/domain/entities/routes/transport_route.dart';
-import 'package:routes_mobile/domain/entities/routes/way_point.dart';
 import 'package:routes_mobile/utils/geolocation.dart';
 
 part 'routes_event.dart';
@@ -114,10 +113,20 @@ class RoutesBloc extends Bloc<RoutesEvent, RoutesState> {
     if(selectedRoute != null){
       final initState = state as OnRoutesMap;
       final executions = await routeExecutionsServices.getExecutionsByRouteId(selectedRoute.uuid);
-      final updatedRoute = selectedRoute.copyWith(
+      final routeDetail = await routesServices.getById(selectedRoute.uuid);
+      final updatedRoute = routeDetail.copyWith(
         executions: executions
       );
-      final polyLines = updatedRoute.executions.map(
+      final routePolyline = Polyline(
+        polylineId: const PolylineId('route'),
+        points: updatedRoute.coords.map(
+          (p) => LatLng(p.lat, p.lon)
+        ).toList(),
+        jointType: JointType.bevel,
+        width: 5,
+        color: event.mainColor
+      );
+      final executionsPolylines = updatedRoute.executions.map(
         (exc) => Polyline(
           polylineId: PolylineId('${exc.id}'),
           points: exc.points.map(
@@ -135,8 +144,9 @@ class RoutesBloc extends Bloc<RoutesEvent, RoutesState> {
       ).toList();
       emit(initState.copyWith(
         selectedRoute: updatedRoute,
-        routePolylines: polyLines,
-        selectedExecution: NoValue()
+        executionsPolylines: executionsPolylines,
+        selectedExecution: NoValue(),
+        routePolyline: routePolyline
       ));
       if(updatedRoute.executions.isNotEmpty){
         _updateCamera(updatedRoute.executions.first, initState.mapController);

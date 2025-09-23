@@ -1,4 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
+import 'package:routes_mobile/data/adapters/data_formatter.dart';
 import 'package:routes_mobile/data/adapters/route_executions_remote_adapter.dart';
 import 'package:routes_mobile/domain/entities/routes/route_execution.dart';
 import 'package:routes_mobile/domain/entities/routes/way_point.dart';
@@ -7,7 +8,9 @@ late RouteExecutionsRemoteAdapterImpl routeExecutionsRemoteAdapter;
 
 void main(){
   setUp((){
-    routeExecutionsRemoteAdapter = RouteExecutionsRemoteAdapterImpl();
+    routeExecutionsRemoteAdapter = RouteExecutionsRemoteAdapterImpl(
+      dataFormatter: DataFormatterImpl()
+    );
   });
 
   group('getExecutionsFromData', (){
@@ -18,9 +21,9 @@ void main(){
           'licensePlate': 'a1',
           'initTime': '2025-01-03 20:01',
           'endTime': '2025-01-03 20:21',
-          'wayPoints': [
-            {'lat': 1, 'lon': 1, 'vel': 1},
-            {'lat': 2, 'lon': 2, 'vel': 2}
+          'points': [
+            {'lat': 1, 'lon': 1, 'speed': 1},
+            {'lat': 2, 'lon': 2, 'speed': 2}
           ]
         },
         {
@@ -28,9 +31,9 @@ void main(){
           'licensePlate': 'a2',
           'initTime': '2025-02-03 20:01',
           'endTime': '2025-02-03 20:21',
-          'wayPoints': [
-            {'lat': 3, 'lon': 3, 'vel': 3},
-            {'lat': 4, 'lon': 4, 'vel': 4}
+          'points': [
+            {'lat': 3, 'lon': 3, 'speed': 3},
+            {'lat': 4, 'lon': 4, 'speed': 4}
           ]
         }
       ];
@@ -98,31 +101,36 @@ void main(){
   group('getJsonFromRouteExecutionUpdate', (){
     late DateTime endTime;
     late List<WayPoint> wayPoints;
+    late String routeId;
 
     setUp((){
       wayPoints = [
         WayPoint(lat: 1.0, lon: 2.0, speed: 3.0),
         WayPoint(lat: 4.0, lon: 5.0, speed: 6.0)
       ];
+      routeId = 'the_route_id';
     });
 
     test('Cuando la fecha tiene horas y minutos', (){
       endTime = DateTime(2025, 07, 31, 10, 03);
       final result = routeExecutionsRemoteAdapter.getJsonFromRouteExecutionUpdate(
         endTime: endTime,
-        points: wayPoints
+        points: wayPoints,
+        routeId: routeId
       );
-      expect(result['wayPoints'].length, wayPoints.length);
-      expect(result['wayPoints'][0]['lat'], wayPoints.first.lat);
-      expect(result['wayPoints'][1]['lon'], wayPoints.last.lon);
+      expect(result['points'].length, wayPoints.length);
+      expect(result['points'][0]['lat'], wayPoints.first.lat);
+      expect(result['points'][1]['lon'], wayPoints.last.lon);
       expect(result['endTime'], '2025-07-31 10:03');
+      expect(result['routeId'], routeId);
     });
 
     test('Cuando la fecha no tiene horas y minutos', (){
       endTime = DateTime(2025, 07, 31);
       final result = routeExecutionsRemoteAdapter.getJsonFromRouteExecutionUpdate(
         endTime: endTime,
-        points: wayPoints
+        points: wayPoints,
+        routeId: routeId
       );
       expect(result['endTime'], '2025-07-31 00:00');
     });

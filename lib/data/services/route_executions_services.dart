@@ -13,6 +13,7 @@ abstract class RouteExecutionsServices {
     required String routeId
   });
   Future<RouteExecution> updateExecution({
+    required String routeId,
     required DateTime endTime,
     required List<WayPoint> wayPoints,
     required int routeExecutionId
@@ -66,12 +67,14 @@ class RouteExecutionsServicesImpl extends RemoteDataSource implements RouteExecu
   @override
   Future<RouteExecution> updateExecution({
     required DateTime endTime, 
-    required List<WayPoint> wayPoints, 
+    required List<WayPoint> wayPoints,
+    required String routeId,
     required int routeExecutionId
   }) async {
     final result = await super.executeDioService(() async {
       final headers = super.getJsonContentHeaders();
       final body = adapter.getJsonFromRouteExecutionUpdate(
+        routeId: routeId,
         endTime: endTime,
         points: wayPoints
       );
@@ -80,6 +83,9 @@ class RouteExecutionsServicesImpl extends RemoteDataSource implements RouteExecu
         options: Options(
           headers: headers
         ),
+        queryParameters: {
+          'routeId': routeId
+        },
         data: body
       );
     });

@@ -70,9 +70,12 @@ class RoutesScreen extends StatelessWidget {
                           },
                           polylines: {
                             if(blocState.selectedExecution == null)
-                              ...blocState.routePolylines
+                              if(blocState.routePolyline != null && blocState.routePolyline!.points.isNotEmpty)
+                                blocState.routePolyline!
+                              else
+                                ...blocState.executionsPolylines
                             else
-                              blocState.routePolylines.firstWhere(
+                              blocState.executionsPolylines.firstWhere(
                                 (pl) => pl.mapsId.value == '${blocState.selectedExecution!.id}'
                               ).copyWith(
                                 widthParam: 8
@@ -90,7 +93,10 @@ class RoutesScreen extends StatelessWidget {
                         const Spacer(flex: 1),
                         Select<TransportRoute>(
                           onTap: (route){
-                            BlocProvider.of<RoutesBloc>(blocContext).add(SelectRoute(route));
+                            BlocProvider.of<RoutesBloc>(blocContext).add(SelectRoute(
+                              route,
+                              Theme.of(context).colorScheme.primary
+                            ));
                           },
                           defaultValue: 'Seleccionar Ruta',
                           items: blocState.routes,

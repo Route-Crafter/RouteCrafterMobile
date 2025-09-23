@@ -10,6 +10,7 @@ abstract class RouteExecutionsRemoteAdapter{
   });
   RouteExecution getExecutionFromInitData(dynamic data);
   Map<String, dynamic> getJsonFromRouteExecutionUpdate({
+    required String routeId,
     required DateTime endTime,
     required List<WayPoint> points
   });
@@ -63,7 +64,8 @@ class RouteExecutionsRemoteAdapterImpl implements RouteExecutionsRemoteAdapter{
   @override
   Map<String, dynamic> getJsonFromRouteExecutionUpdate({
     required DateTime endTime,
-    required List<WayPoint> points
+    required List<WayPoint> points,
+    required String routeId
   }) => {
     'endTime': dataFormatter.getStringFromDate(endTime),
     'points': points.map(
@@ -72,7 +74,8 @@ class RouteExecutionsRemoteAdapterImpl implements RouteExecutionsRemoteAdapter{
         'lon': wP.lon,
         'speed': wP.speed
       }
-    ).toList()
+    ).toList(),
+    'routeId': routeId
   };
   
   @override

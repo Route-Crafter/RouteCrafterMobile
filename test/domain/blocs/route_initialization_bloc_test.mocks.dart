@@ -371,6 +371,7 @@ class MockRouteExecutionsServices extends _i1.Mock
 
   @override
   _i6.Future<_i4.RouteExecution> updateExecution({
+    required String? routeId,
     required DateTime? endTime,
     required List<_i13.WayPoint>? wayPoints,
     required int? routeExecutionId,
@@ -380,6 +381,7 @@ class MockRouteExecutionsServices extends _i1.Mock
           #updateExecution,
           [],
           {
+            #routeId: routeId,
             #endTime: endTime,
             #wayPoints: wayPoints,
             #routeExecutionId: routeExecutionId,
@@ -391,6 +393,7 @@ class MockRouteExecutionsServices extends _i1.Mock
             #updateExecution,
             [],
             {
+              #routeId: routeId,
               #endTime: endTime,
               #wayPoints: wayPoints,
               #routeExecutionId: routeExecutionId,
@@ -404,6 +407,7 @@ class MockRouteExecutionsServices extends _i1.Mock
             #updateExecution,
             [],
             {
+              #routeId: routeId,
               #endTime: endTime,
               #wayPoints: wayPoints,
               #routeExecutionId: routeExecutionId,
@@ -441,7 +445,8 @@ class MockGeolocation extends _i1.Mock implements _i14.Geolocation {
       ) as _i6.Future<_i13.WayPoint?>);
 
   @override
-  _i6.Future<void> addOnChanged(dynamic Function(_i13.WayPoint)? onChanged) =>
+  _i6.Future<void> addOnChanged(
+          dynamic Function(_i13.DirectionedWayPoint)? onChanged) =>
       (super.noSuchMethod(
         Invocation.method(
           #addOnChanged,

@@ -15,6 +15,7 @@ abstract class RoutesServices{
   Future<List<TransportRoute>> getByPlaceInfo({
     required PlaceInfo info
   });
+  Future<TransportRoute> getById(String id);
 }
 
 class RoutesServicesImpl extends RemoteDataSource implements RoutesServices{
@@ -68,6 +69,19 @@ class RoutesServicesImpl extends RemoteDataSource implements RoutesServices{
       )
     );
     return adapter.getRoutesFromData(result.data);
+  }
+  
+  @override
+  Future<TransportRoute> getById(String id) async {
+    final result = await super.executeDioService(
+      () async => await dio.get(
+        '${ServicesRoutes.routes}/$id',
+        options: Options(
+          headers: super.getJsonContentHeaders()
+        )
+      )
+    );
+    return adapter.getRouteFromData(result.data);
   }
 
 }
