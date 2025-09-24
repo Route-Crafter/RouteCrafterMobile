@@ -1,4 +1,4 @@
-package com.example.routes_mobile.services
+package com.jhoncke.routecrafter.services
 
 import android.Manifest
 import android.app.Notification
@@ -14,13 +14,13 @@ import android.os.Looper
 import android.util.Log
 import androidx.annotation.RequiresApi
 import androidx.core.app.ActivityCompat
-import com.example.routes_mobile.R
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationCallback
 import com.google.android.gms.location.LocationRequest
 import com.google.android.gms.location.LocationResult
 import com.google.android.gms.location.LocationServices
 import com.google.android.gms.location.Priority
+import com.jhoncke.routecrafter.R
 import io.flutter.plugin.common.MethodChannel
 
 class LocationService : Service() {

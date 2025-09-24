@@ -13,6 +13,11 @@ if (localPropertiesFile.exists()) {
     }
 }
 
+def MAPS_API_KEY = localProperties.getProperty("MAPS_API_KEY")
+if (MAPS_API_KEY == null || MAPS_API_KEY.isEmpty()) {
+    MAPS_API_KEY = System.getenv("MAPS_API_KEY") ?: ""
+}
+
 def flutterRoot = localProperties.getProperty('flutter.sdk')
 if (flutterRoot == null) {
     throw new GradleException("Flutter SDK not found. Define location with flutter.sdk in the local.properties file.")
@@ -39,7 +44,7 @@ if (keystorePropertiesFile.exists()) {
 }
 
 android {
-    namespace "com.example.routes_mobile"
+    namespace "com.jhoncke.routecrafter"
     compileSdk rootProject.ext.compileSdkVersion
     ndkVersion "27.0.12077973"
 
@@ -53,12 +58,13 @@ android {
     }
 
     defaultConfig {
-        applicationId "com.example.routes_mobile"
+        applicationId "com.jhoncke.routecrafter"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
-    }   
+        manifestPlaceholders = [ MAPS_API_KEY: MAPS_API_KEY, applicationName: "io.flutter.app.FlutterApplication" ]
+  }
 
     buildTypes {
         release {
