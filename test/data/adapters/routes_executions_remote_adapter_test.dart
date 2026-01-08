@@ -1,4 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
+import 'package:routes_mobile/data/adapters/data_formatter.dart';
 import 'package:routes_mobile/data/adapters/route_executions_remote_adapter.dart';
 import 'package:routes_mobile/domain/entities/routes/route_execution.dart';
 import 'package:routes_mobile/domain/entities/routes/way_point.dart';
@@ -7,7 +8,9 @@ late RouteExecutionsRemoteAdapterImpl routeExecutionsRemoteAdapter;
 
 void main(){
   setUp((){
-    routeExecutionsRemoteAdapter = RouteExecutionsRemoteAdapterImpl();
+    routeExecutionsRemoteAdapter = RouteExecutionsRemoteAdapterImpl(
+      dataFormatter: DataFormatterImpl()
+    );
   });
 
   group('getExecutionsFromData', (){
