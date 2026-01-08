@@ -1,16 +1,16 @@
-package com.example.routes_mobile
+package com.jhoncke.routecrafter
 
 import android.content.Intent
 import android.os.Build
 import android.util.Log
 import androidx.annotation.RequiresApi
-import com.example.routes_mobile.services.LocationService
+import com.jhoncke.routecrafter.services.LocationService
 import io.flutter.embedding.android.FlutterActivity
 import io.flutter.embedding.engine.FlutterEngine
 import io.flutter.plugin.common.MethodChannel
 
 class MainActivity: FlutterActivity() {
-    private val CHANNEL = "com.example.routes_mobile/location"
+    private val CHANNEL = "com.jhoncke.routecrafter/location"
 
     @RequiresApi(Build.VERSION_CODES.O)
     override fun configureFlutterEngine(flutterEngine: FlutterEngine) {

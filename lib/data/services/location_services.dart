@@ -8,7 +8,7 @@ abstract class LocationServices {
 
 class LocationServicesImpl implements LocationServices{
 
-  static const _channel = MethodChannel("com.example.routes_mobile/location");
+  static const _channel = MethodChannel("com.jhoncke.routecrafter/location");
   
   @override
   Future<void> startService(Function(DirectionedWayPoint p1) callBack) async {
