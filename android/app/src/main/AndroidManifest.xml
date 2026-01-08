@@ -34,7 +34,7 @@
             android:enabled="true"
             android:exported="true" />
         <meta-data android:name="com.google.android.geo.API_KEY"
-               android:value="AIzaSyBcGLpmZFchjIhHnQYWX2HJ0NtssQGESpI"/>
+               android:value="${MAPS_API_KEY}"/>
         <!-- Don't delete the meta-data below.
              This is used by the Flutter tool to generate GeneratedPluginRegistrant.java -->
         <meta-data
