@@ -43,9 +43,14 @@ class RoutesBloc extends Bloc<RoutesEvent, RoutesState> {
     final placeInfo = await geolocation.getPlaceInfoFromLocation();
     final currentPosition = await geolocation.getCurrentPosition();
     List<TransportRoute>? routes;
-    if(placeInfo != null){
-      routes = await routesServices.getByPlaceInfo(info: placeInfo);
+    try {
+      if(placeInfo != null){
+        routes = await routesServices.getByPlaceInfo(info: placeInfo);
+      }
+    } catch (_) {
+      routes = [];
     }
+    
     emit(OnRoutesMap(
       place: placeInfo!,
       devicePosition: Marker(

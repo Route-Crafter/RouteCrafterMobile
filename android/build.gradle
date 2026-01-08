@@ -18,14 +18,14 @@ subprojects {
 }
 
 ext {
-    compileSdkVersion = 35
+    compileSdkVersion = 36
     targetSdkVersion = 35
-    minSdkVersion = 21
+    minSdkVersion = 24
     kotlin_version = '1.9.22'
     flutterRoot = localProperties.getProperty('flutter.sdk')
     flutter = {
-        compileSdkVersion = 35
-        minSdkVersion = 21
+        compileSdkVersion = 36
+        minSdkVersion = 24
     }
 }
 
