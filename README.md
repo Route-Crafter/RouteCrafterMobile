@@ -77,7 +77,7 @@ Una vez iniciado el recorrido:
 
 - El usuario puede seleccionar una ruta específica.
 - En el mapa se muestran **todos los recorridos registrados** para esa ruta.
-- Cada recorrido representa una ejecución independiente realizada por usuarios.
+- Cada recorrido representa una ejecución independiente realizada por un usuario.
 
 ---
 
