@@ -101,14 +101,12 @@ void main(){
   group('getJsonFromRouteExecutionUpdate', (){
     late DateTime endTime;
     late List<WayPoint> wayPoints;
-    late String routeId;
 
     setUp((){
       wayPoints = [
         WayPoint(lat: 1.0, lon: 2.0, speed: 3.0),
         WayPoint(lat: 4.0, lon: 5.0, speed: 6.0)
       ];
-      routeId = 'the_route_id';
     });
 
     test('Cuando la fecha tiene horas y minutos', (){
