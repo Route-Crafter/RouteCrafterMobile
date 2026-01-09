@@ -133,7 +133,6 @@ class RouteExecutionBloc extends Bloc<RouteExecutionEvent, RouteExecutionState> 
       await geolocation.stopOnChanged();
       final endTime = DateTime.now();
       final endedExecution = await routeExecutionsServices.updateExecution(
-        routeId: initState.route.uuid,
         endTime: endTime,
         wayPoints: initState.wayPoints,
         routeExecutionId: initState.routeExecution.id

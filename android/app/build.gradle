@@ -43,15 +43,9 @@ if (keystorePropertiesFile.exists()) {
 }
 
 android {
-<<<<<<< HEAD
-    namespace "com.jhoncke.routecrafter"
-    compileSdk rootProject.ext.compileSdkVersion
-    ndkVersion "27.0.12077973"
-=======
     namespace = "com.jhoncke.routecrafter"
     compileSdk = 36
     ndkVersion = "27.0.12077973"
->>>>>>> first_functional_version
 
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_17
@@ -63,15 +57,6 @@ android {
     }
 
     defaultConfig {
-<<<<<<< HEAD
-        applicationId "com.jhoncke.routecrafter"
-        minSdkVersion rootProject.ext.minSdkVersion
-        targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode flutterVersionCode.toInteger()
-        versionName flutterVersionName
-        manifestPlaceholders = [ MAPS_API_KEY: MAPS_API_KEY, applicationName: "io.flutter.app.FlutterApplication" ]
-  }
-=======
         // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
         applicationId = "com.jhoncke.routecrafter"
         // You can update the following values to match your application needs.
@@ -86,7 +71,6 @@ android {
             applicationName: "io.flutter.app.FlutterApplication"
         ]
     }
->>>>>>> first_functional_version
 
     buildTypes {
         release {

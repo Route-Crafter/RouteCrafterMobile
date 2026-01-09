@@ -115,22 +115,19 @@ void main(){
       endTime = DateTime(2025, 07, 31, 10, 03);
       final result = routeExecutionsRemoteAdapter.getJsonFromRouteExecutionUpdate(
         endTime: endTime,
-        points: wayPoints,
-        routeId: routeId
+        points: wayPoints
       );
       expect(result['points'].length, wayPoints.length);
       expect(result['points'][0]['lat'], wayPoints.first.lat);
       expect(result['points'][1]['lon'], wayPoints.last.lon);
       expect(result['endTime'], '2025-07-31 10:03');
-      expect(result['routeId'], routeId);
     });
 
     test('Cuando la fecha no tiene horas y minutos', (){
       endTime = DateTime(2025, 07, 31);
       final result = routeExecutionsRemoteAdapter.getJsonFromRouteExecutionUpdate(
         endTime: endTime,
-        points: wayPoints,
-        routeId: routeId
+        points: wayPoints
       );
       expect(result['endTime'], '2025-07-31 00:00');
     });

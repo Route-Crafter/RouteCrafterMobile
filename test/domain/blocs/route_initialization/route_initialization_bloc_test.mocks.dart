@@ -373,7 +373,6 @@ class MockRouteExecutionsServices extends _i1.Mock
 
   @override
   _i6.Future<_i4.RouteExecution> updateExecution({
-    required String? routeId,
     required DateTime? endTime,
     required List<_i13.WayPoint>? wayPoints,
     required int? routeExecutionId,
@@ -383,7 +382,6 @@ class MockRouteExecutionsServices extends _i1.Mock
           #updateExecution,
           [],
           {
-            #routeId: routeId,
             #endTime: endTime,
             #wayPoints: wayPoints,
             #routeExecutionId: routeExecutionId,
@@ -395,7 +393,6 @@ class MockRouteExecutionsServices extends _i1.Mock
             #updateExecution,
             [],
             {
-              #routeId: routeId,
               #endTime: endTime,
               #wayPoints: wayPoints,
               #routeExecutionId: routeExecutionId,
@@ -409,7 +406,6 @@ class MockRouteExecutionsServices extends _i1.Mock
             #updateExecution,
             [],
             {
-              #routeId: routeId,
               #endTime: endTime,
               #wayPoints: wayPoints,
               #routeExecutionId: routeExecutionId,
