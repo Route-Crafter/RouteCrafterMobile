@@ -9,7 +9,6 @@ import 'package:routes_mobile/domain/entities/places/place_info.dart';
 import 'package:routes_mobile/domain/entities/places/zone.dart';
 import 'package:routes_mobile/domain/entities/routes/route_execution.dart';
 import 'package:routes_mobile/domain/entities/routes/transport_route.dart';
-import 'package:routes_mobile/domain/entities/routes/way_point.dart';
 import 'package:routes_mobile/utils/geolocation.dart';
 
 part 'routes_event.dart';
