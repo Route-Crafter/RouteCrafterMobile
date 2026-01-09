@@ -62,7 +62,7 @@ class RoutesServicesImpl extends RemoteDataSource implements RoutesServices{
           headers: super.getJsonContentHeaders()
         ),
         queryParameters: {
-          'countryIso': info.countryIsoCode,          
+          'countryIso': info.countryIsoCode,
           'stateName': info.state,
           'cityName': info.city
         }

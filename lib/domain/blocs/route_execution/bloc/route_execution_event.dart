@@ -3,10 +3,10 @@ part of 'route_execution_bloc.dart';
 @immutable
 sealed class RouteExecutionEvent {}
 
-class InitBloc extends RouteExecutionEvent {
+class StartBloc extends RouteExecutionEvent {
   final TransportRoute route;
   final RouteExecution routeExecution;
-  InitBloc({
+  StartBloc({
     required this.route,
     required this.routeExecution
   });
