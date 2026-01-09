@@ -229,7 +229,7 @@ class RouteExecutionScreen extends StatelessWidget {
   void _managePostFrameCallBacks(BuildContext context, RouteExecutionState state){
     WidgetsBinding.instance.addPostFrameCallback((_){
       if(state is RouteExecutionInitial){
-        BlocProvider.of<RouteExecutionBloc>(context).add(InitBloc(
+        BlocProvider.of<RouteExecutionBloc>(context).add(StartBloc(
           route: route,
           routeExecution: routeExecution
         ));

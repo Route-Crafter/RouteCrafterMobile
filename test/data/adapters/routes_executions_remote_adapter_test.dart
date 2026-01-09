@@ -21,9 +21,9 @@ void main(){
           'licensePlate': 'a1',
           'initTime': '2025-01-03 20:01',
           'endTime': '2025-01-03 20:21',
-          'wayPoints': [
-            {'lat': 1, 'lon': 1, 'vel': 1},
-            {'lat': 2, 'lon': 2, 'vel': 2}
+          'points': [
+            {'lat': 1, 'lon': 1, 'speed': 1},
+            {'lat': 2, 'lon': 2, 'speed': 2}
           ]
         },
         {
@@ -31,9 +31,9 @@ void main(){
           'licensePlate': 'a2',
           'initTime': '2025-02-03 20:01',
           'endTime': '2025-02-03 20:21',
-          'wayPoints': [
-            {'lat': 3, 'lon': 3, 'vel': 3},
-            {'lat': 4, 'lon': 4, 'vel': 4}
+          'points': [
+            {'lat': 3, 'lon': 3, 'speed': 3},
+            {'lat': 4, 'lon': 4, 'speed': 4}
           ]
         }
       ];
@@ -115,9 +115,9 @@ void main(){
         endTime: endTime,
         points: wayPoints
       );
-      expect(result['wayPoints'].length, wayPoints.length);
-      expect(result['wayPoints'][0]['lat'], wayPoints.first.lat);
-      expect(result['wayPoints'][1]['lon'], wayPoints.last.lon);
+      expect(result['points'].length, wayPoints.length);
+      expect(result['points'][0]['lat'], wayPoints.first.lat);
+      expect(result['points'][1]['lon'], wayPoints.last.lon);
       expect(result['endTime'], '2025-07-31 10:03');
     });
 

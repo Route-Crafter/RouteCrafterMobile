@@ -21,8 +21,8 @@ class RouteExecutionBloc extends Bloc<RouteExecutionEvent, RouteExecutionState> 
     required this.geolocation
   }) : super(RouteExecutionInitial()) {
     on<RouteExecutionEvent>((event, emit)async{
-      if( event is InitBloc ){
-        await _initBloc( event, emit );
+      if( event is StartBloc ){
+        await _startBloc( event, emit );
       } else if( event is InitRouteExecutionProccess){
         await _initRouteExecutionProccess( event, emit );
       } else if (event is _UpdateMap){
@@ -34,7 +34,7 @@ class RouteExecutionBloc extends Bloc<RouteExecutionEvent, RouteExecutionState> 
     });
   }
 
-  Future<void> _initBloc( InitBloc event, Emitter<RouteExecutionState> emit ) async {
+  Future<void> _startBloc( StartBloc event, Emitter<RouteExecutionState> emit ) async {
     final initLocation = await geolocation.getCurrentPosition();
     if(initLocation != null){
       final markerImage = await BitmapDescriptor.asset(
