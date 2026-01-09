@@ -67,3 +67,18 @@ Future<void> waitForCondition(bool Function() cond, {Duration timeout = const Du
     await Future.delayed(const Duration(milliseconds: 10));
   }
 }
+
+class TrackingRouteExecutionsService extends FakeRouteExecutionsServices {
+  bool updated = false;
+  @override
+  Future<RouteExecution> updateExecution({required DateTime endTime, required List<WayPoint> wayPoints, required int routeExecutionId}) async {
+    updated = true;
+    return RouteExecution(
+      id: routeExecutionId,
+      licensePlate: 'LP',
+      initTime: DateTime.now(),
+      endTime: endTime,
+      points: wayPoints,
+    );
+  }
+}
