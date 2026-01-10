@@ -17,7 +17,7 @@ RouteCrafter Mobile permite a los usuarios:
 
 ---
 
-## 📍 Funcionamiento general
+## 📍 Funcionamiento inicial
 
 Al iniciar la aplicación:
 
@@ -61,8 +61,7 @@ Una vez iniciado el recorrido:
   - Velocidad
 - Los puntos de geolocalización se:
   - Dibujan progresivamente en el mapa
-  - Representan mediante un marcador con forma de bus
-  - El marcador rota según la dirección del movimiento
+  - Representan mediante un marcador con forma de bus (El marcador rota según la dirección del movimiento)
 - El recorrido continúa incluso si la app se encuentra **minimizada** (geolocalización en segundo plano).
 
 ### Finalización del recorrido
@@ -129,7 +128,7 @@ La app consume exclusivamente las siguientes APIs del backend:
 - Registro de recorridos en segundo plano
 - Renderizado progresivo del recorrido en el mapa
 - Comunicación directa con backend REST
-- Soporte multiplataforma (Android / iOS)
+- Channels para integración de código nativo en Kotlin (geolocalización en segundo plano)
 
 ---
 
@@ -149,6 +148,86 @@ Funcionalidades en desarrollo / futuras:
 - 🔜 Métricas de cobertura de ruta
 - 🔜 Sistema de autenticación de usuarios
 - 🔜 Mejoras en precisión y agregación de recorridos
+
+---
+
+## ▶️ Ejecución de la aplicación
+
+La aplicación móvil RouteCrafter puede ejecutarse de dos maneras:
+
+### Opción 1: Ejecutar usando el APK
+
+La forma más sencilla de probar la aplicación es instalar directamente el archivo APK (Para esto, el servidor debe estar corriendo en localhost:1234)
+
+1. 👉 [Ingresa a este directorio](https://github.com/Route-Crafter/RouteCrafterMobile/tree/main/apk)
+2. Copia el archivo routeCrafter.apk a un dispositivo Android físico o emulador
+3. Instálalo manualmente (asegúrate de tener habilitada la instalación desde orígenes desconocidos).
+
+### Opción 2: Ejecutar desde el código fuente (modo desarrollo)
+
+Esta opción está pensada para desarrollo y pruebas.
+
+1. Clonar el repositorio
+
+   ```bash
+   git clone https://github.com/Route-Crafter/RouteCrafterMobile.git
+   cd RouteCrafterMobile
+   ```
+
+2. Instalar dependencias
+
+   ```bash
+   flutter pub get
+   ```
+
+3. Configurar el backend (⚠️ paso importante)
+
+   Antes de ejecutar la app, debes configurar la URL del servidor backend en el archivo:
+
+   ```bash
+   lib/globals/injection_container.dart
+   ```
+
+   En este archivo, se instancia Dio con un objeto BaseOptions.
+   Debes modificar la propiedad baseUrl según dónde esté desplegado el backend:
+
+   ```dart
+   sl.registerLazySingleton<Dio>(
+     () => Dio(
+       BaseOptions(
+         baseUrl: 'http://10.0.2.2:1234',
+       )
+     )
+   );
+   ```
+
+   En la variable baseUrl puedes definir el host del servidor,
+   sin importar si el backend está corriendo en local o en la nube.
+
+   Casos posibles:
+
+   - **Backend en la nube:**  
+     Usa directamente la URL pública, por ejemplo:
+
+     ```dart
+     baseUrl: 'https://routecrafter.com'
+     ```
+
+   - **Backend en local (localhost):**  
+     Si ejecutas el backend localmente y usas un emulador Android:
+
+     ```dart
+     baseUrl: 'http://10.0.2.2:PUERTO'
+     ```
+
+     ⚠️ En Flutter, localhost no funciona dentro del emulador Android.
+     10.0.2.2 es el alias que apunta al localhost de la máquina anfitriona.
+
+4. Ejecutar la app en un emulador o dispositivo
+
+   ```bash
+   flutter run
+   ```
 
 ---
 
