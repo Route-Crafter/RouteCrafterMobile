@@ -30,8 +30,7 @@ void init(){
   );
   sl.registerLazySingleton<Dio>(
     () => Dio(BaseOptions(
-      baseUrl: 'http://10.0.2.2:1234',
-      //baseUrl: 'https://routecrafter.alwaysdata.net'
+      baseUrl: 'http://10.0.2.2:1234'
     ))
   );
   sl.registerLazySingleton<DataFormatter>(
