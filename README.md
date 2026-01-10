@@ -159,8 +159,9 @@ La aplicación móvil RouteCrafter puede ejecutarse de dos maneras:
 
 La forma más sencilla de probar la aplicación es instalar directamente el archivo APK (Para esto, el servidor debe estar corriendo en localhost:1234)
 
-1. 👉 [Ingresa a este directorio](https://github.com/Route-Crafter/RouteCrafterMobile/tree/main/apk)
-2. Copia el archivo routeCrafter.apk a un dispositivo Android físico o emulador
+1. Descarga el APK desde la sección de Releases:
+  👉 [Aquí](https://github.com/Route-Crafter/RouteCrafterMobile/releases)
+2. Copia el archivo routecrafter0.1.0.apk a un dispositivo Android físico o emulador
 3. Instálalo manualmente (asegúrate de tener habilitada la instalación desde orígenes desconocidos).
 
 ### Opción 2: Ejecutar desde el código fuente (modo desarrollo)
